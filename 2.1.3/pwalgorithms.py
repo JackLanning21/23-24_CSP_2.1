@@ -21,15 +21,15 @@ def one_word(password):
       return True, guesses
   return False, guesses
 
+# analyze a two-word password
 def two_word(password):
   words = get_dictionary()
   guesses = 0
-  for w in words:
-    guesses += 1
-    if (w == password):
-      return True, guesses
-    for w in words:
-      guesses += 1
-      if (w == password):
+  for word1 in words:
+    for word2 in words:
+      text = word1 + word2
+      guesses = guesses + 1
+      if text == password:
         return True, guesses
   return False, guesses
+
