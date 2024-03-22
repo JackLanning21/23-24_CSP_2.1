@@ -3,8 +3,11 @@
 import tkinter as tk
 
 def test_my_button():
-    frame_auth.tkraise()
-    ent_password.tk.get()
+    if(ent_username.get() == "username" and ent_password.get() == "password"):
+        frame_auth.tkraise()
+    else:
+        fail_label = tk.Label(frame_login, text="You suck, put in the right stuff")
+        fail_label.pack()
 
 # main window
 root = tk.Tk()
@@ -15,7 +18,6 @@ frame_login.grid(row=0, column=0, sticky='news')
 
 frame_auth = tk.Frame(root)
 frame_auth.grid(row=0, column=0, sticky='news')
-frame_auth = tk.Label(frame_login, text='password', font='Arial')
 
 frame_login.tkraise()
 
